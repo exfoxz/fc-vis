@@ -5,10 +5,17 @@ $( document ).ready(function() {
         'c.c.npz': 'C&W on c net',
     }
 
+
+    $(".loading").show()
+    $("#main").hide()
     $.ajax({
       url: "data/activations_slim.json",
       dataType: "json",
       success: function(response) {
+        // hide loading div
+        $(".loading").hide()
+        $("#main").show()
+
         data = response;
 
         for(var key in data) {
